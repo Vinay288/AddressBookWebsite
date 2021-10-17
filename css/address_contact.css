@@ -123,7 +123,7 @@ body {
   }
   
   .text {
-    font-size: 18px;
+    font-size: 16px;
     color: #42515f;
     opacity: 1;
     font-family: Roboto;
@@ -173,8 +173,9 @@ body {
     cursor: pointer;
   }
   
-  #addButton {
+  .submitButton {
     margin-right: 30px;
+    background-color: lightgreen;
   }
   
   error-output {
@@ -204,4 +205,56 @@ body {
   .location-row input {
     box-sizing: border-box;
     font-size: 16px;
+  }
+  button:disabled {
+    background-color: lightgrey;
+    color : #C3C3C3;
+   cursor:none;
+    pointer-events: none;
+}
+  @media only screen and (max-width: 960px) {
+    .cancelButton {
+      margin-left: 0px;
+    }
+  
+    .form {
+      width: 85%;
+      padding: 44px 20px;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .form {
+      margin-top: 10px;
+    }
+  
+    .row {
+      flex-direction: column;
+    }
+  
+    .uploadButton {
+      justify-content: flex-start;
+    }
+  
+    .profile-radio-button {
+      flex-flow: wrap;
+    }
+  
+    .submit-reset {
+      width: 100%;
+      display: flex;
+      flex-grow: 1;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+  
+    .submitButton {
+      margin: 0;
+    }
+  
+    .buttonParent {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+    }
   }
