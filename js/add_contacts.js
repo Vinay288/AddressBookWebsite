@@ -56,6 +56,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 });
 const save = () => {
     createContact();
+    createAndUpdateStorage();
 }
 function createContact() {
     let contact = new Contact();
@@ -70,9 +71,30 @@ function createContact() {
     } catch (e) {
         console.log(e);
     }
-    alert(contact);
+    return contact;
 }
 const getInputValueById = (id) => {
     let value = document.querySelector(id).value;
     return value;
 }
+
+const createAndUpdateStorage = () => {
+    let contactsList = JSON.parse(
+        localStorage.getItem("ContactsList")
+    );
+    console.log(contactsList);
+
+    if (contactsList) {
+
+        contactsList.push(createContact());
+
+    } else {
+        contactsList = [createContact()];
+    }
+    localStorage.setItem(
+        "ContactsList",
+        JSON.stringify(contactsList)
+    );
+    console.log("fsffs");
+    alert("updated contact details! total contacts are = " + contactsList.length);
+};
